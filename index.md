@@ -1,1 +1,0 @@
-# Can you fucking kill yourself PLEASE
