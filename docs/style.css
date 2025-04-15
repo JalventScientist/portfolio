@@ -9,17 +9,16 @@
     background-color: #e6e9f7;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBkPSJNMjggNjZMMCA1MEwwIDE2TDI4IDBMNTYgMTZMNTYgNTBMMjggNjZMMjggMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=);
     font-family: "Oswald", "Helvetica Newe", Helvetica, sans-serif;
-    overflow:hidden;
   }
 
-  #pfp{
+  #pfp {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-  }
-  #me{
+}
+
+#me {
     border-radius: 50%;
     margin-top: 10px;
     width: 300px;
@@ -28,18 +27,63 @@
     outline-style: double;
     outline-color: rgb(55, 95, 121);
     outline-width: 10px;
-  }
+}
 
-  h1{
+h1 {
     font-size: 2em;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-  }
+}
 
-  #gamenav{
+#gamenav {
     list-style-type: none;
-    padding:0;
-    margin:20px auto;
+    padding: 0;
+    margin: 20px auto;
     display: flex;
-  }
+}
+
+#subsubtitle {
+    margin: 20px auto;
+    font-size: 1.5em;
+    display: flex;
+}
+
+#project-list-container {
+    max-width: 1200px; /* Adjust the max-width as needed */
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the list items */
+}
+
+li {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.image-container {
+    width: 100%;
+    padding-bottom: 100%; /* This creates a 1:1 aspect ratio */
+    position: relative;
+}
+
+.ProjectImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* This will ensure the image covers the box, cutting off parts if necessary */
+}
+
+.hidden-link {
+  color: inherit; /* Inherit the color from the parent element */
+  text-decoration: none; /* Remove the underline */
+}
