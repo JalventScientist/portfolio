@@ -5,10 +5,22 @@
     padding: 0;
   }
 
+  body::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: -1; /* Ensure it stays behind other content */
+  }
   body {
-    background-color: #e6e9f7;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cGF0aCBkPSJNMjggNjZMMCA1MEwwIDE2TDI4IDBMNTYgMTZMNTYgNTBMMjggNjZMMjggMTAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=);
+    background-image: url("./Media/background/bluebackground.jpeg");
     font-family: "Oswald", "Helvetica Newe", Helvetica, sans-serif;
+    background-size: cover;
+    background-position: center;
+    color: white;
   }
 
   #pfp {
@@ -17,6 +29,7 @@
     flex-direction: column;
     align-items: center;
 }
+
 
 #me {
     border-radius: 50%;
@@ -30,6 +43,7 @@
 }
 
 h1 {
+    
     font-size: 2em;
     text-align: center;
     margin-top: 20px;
@@ -52,6 +66,33 @@ h1 {
 #project-list-container {
     max-width: 1200px; /* Adjust the max-width as needed */
     margin: 0 auto;
+}
+
+#project-description {
+    font-size: 1.2em;
+    margin: 50px auto;
+    max-width:1000px;
+}
+
+#stretch{
+    width: 100%;
+}
+
+.drama{
+    color:rgb(255, 188, 140);
+}
+
+#fullwidthvid{
+    width: 100%;
+    height: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+#specifications{
+        font-size: 1.2em;
+    margin: 50px auto;
+    text-align: center;
 }
 
 ul {
@@ -86,4 +127,29 @@ li {
 .hidden-link {
   color: inherit; /* Inherit the color from the parent element */
   text-decoration: none; /* Remove the underline */
+}
+
+#picPreview {
+    border-radius: 50%;
+    margin-top: 10px;
+    width: 300px;
+    height: 300px; /* Ensure the height matches the width for a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the image inside the circle */
+    overflow: hidden; /* Hide any part of the image that overflows the circle */
+    outline-style: double;
+    outline-color: rgb(55, 95, 121);
+    outline-width: 10px;
+}
+
+#picPreview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the circle, cutting off excess parts */
+}
+
+#visiblelink {
+    font-weight: bold;
+    color: rgb(140, 194, 255);
 }
