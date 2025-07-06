@@ -88,6 +88,13 @@ h1 {
     display: block;
     margin: 0 auto;
 }
+#fullwidthvidborderless{
+    width: 100%;
+    height: 40%;
+    display: block;
+    margin: 0 auto;
+    border: none; /* Remove border for a cleaner look */
+}
 
 #specifications{
         font-size: 1.2em;
