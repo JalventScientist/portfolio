@@ -29,6 +29,8 @@
             <li id="specifications">Year: 2024</li>
             <li id="specifications">Status: unfinished</li>
             <li id="specifications">Github: <a href="https://github.com/JalventScientist/another-unity-project-idk" id="visiblelink">JalventScientist/spider</a></li>
+            <li id="specifications">Algorithms: Inverse Kinematics & Curves</li>
+            <li id="specifications">Solo project</li>
         </ul>
     </div>
     <div id="project-description" class="animate__animated animate__fadeInUp"
@@ -38,15 +40,15 @@
         <img src="../docs/Media/Gifs/creatureamove.gif" id="halfstretch" alt="movement"
             class="animate__animated animate__fadeInUp" style="animation-duration: 1.5s; animation-delay: 0.3s;">
         <p>I got down to the basics first; setting up the rig. This is mainly done with aim constraints, similar to how knees work.</p>
-        <p>Then came leg adjustment. Legs aren't procedural if they don't adjust by themselves. Each leg had their own origin set up, and will adjust back to said origin once the distance has reached further then a set value.<br>
+        <p>Then came <a href="https://github.com/JalventScientist/another-unity-project-idk/blob/main/Roguelike/Assets/TheSpider/FootAdjust.cs" id="visiblelink">leg adjustment</a>. Legs aren't procedural if they don't adjust by themselves. Each leg had their own origin set up, and will adjust back to said origin once the distance has reached further then a set value.<br>
         This was fun and all, but this was purely the legs; the body's movement was prescripted for automation and demonstration.</p>
                 <img src="../docs/Media/Gifs/arach.gif" id="stretch" alt="movement"
             class="animate__animated animate__fadeInUp" style="animation-duration: 1.5s; animation-delay: 0.3s;">
-        <p>I then got to work on a script that managed the legs in a more realistic way. the legs have been registered to this manager, which was then linked to an adjustable limit of how many legs can be off the floor at once, preventing the spider from magically levitating.</p>
+        <p>I then got to work on a script that managed the legs in a more realistic way. the legs have been registered to this <a href="https://github.com/JalventScientist/another-unity-project-idk/blob/main/Roguelike/Assets/TheSpider/Procedural%20Animator%20ADVANCED.cs" id="visiblelink">manager</a>, which was then linked to an adjustable limit of how many legs can be off the floor at once, preventing the spider from magically levitating.</p>
                         <img src="../docs/Media/Gifs/RISE.gif" id="stretch" alt="movement"
             class="animate__animated animate__fadeInUp" style="animation-duration: 1.5s; animation-delay: 0.3s;">
         <p>What was probably the hardest was height adjustment. Procedural often gets used for automatically adjusting the legs to more dynamic surfaces instead of a simple flat floor.</p>
-        <p>Using raycasts, each leg checks above and below the origin, checking for an active floor to place its feet on. It primarily relies on the raycasts upward, but has raycasts downward as well.</p>
+        <p>Using <a href="https://github.com/JalventScientist/another-unity-project-idk/blob/main/Roguelike/Assets/TheSpider/HeightAdjustf.cs" id="visiblelink">raycasts</a>, each leg checks above and below the origin, checking for an active floor to place its feet on. It primarily relies on the raycasts upward, but has raycasts downward as well.</p>
         <p><br>For a one-week project, I am very proud of the quality I've gotten it to. A next goal would be tilting the body along with its rotation, but I have yet to find a proper approach to it. A proper remodel would be necessary in any case.</p>
         <div id="subsubtitle" class="animate__animated animate__fadeInUp"
             style="animation-duration: 1.5s; animation-delay: 0.7s;">
