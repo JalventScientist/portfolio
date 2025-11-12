@@ -161,6 +161,7 @@ li {
     margin-top: 10px;
     width: 300px;
     height: 300px; /* Ensure the height matches the width for a perfect circle */
+    object-fit:cover;
     display: flex;
     align-items: center;
     justify-content: center; /* Center the image inside the circle */
