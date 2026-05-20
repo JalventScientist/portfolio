@@ -11,8 +11,15 @@
 
 <body>
     <div class="eyecenter">
-        <img src="../docs/v2/eye.png" class="eye">
+        <div class="eye-stack" id="eye-stack">
+            <img id="eye-base" src="../docs/v2/Media/Eyes/Eye.png" class="eye eye-base breathing" style="--breath-seed: 1; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 1deg; --breath-duration: 1000; --breath-scale-pulse: 0.012; --breath-jitter: 0.5;">
+            <div id="eye-pupil" class="eye-pupil breathing" style="--breath-seed: 3; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 0deg; --breath-duration: 1000; --breath-scale-pulse: 0.012; --breath-jitter: 0.55;">
+                <img src="../docs/v2/Media/Eyes/Pupil.png" class="pupil-image" alt="">
+            </div>
+        </div>
     </div>
+    <script src="scripts/breathing.js"></script>
+    <script src="scripts/lookat.js"></script>
 </body>
 
 </html>

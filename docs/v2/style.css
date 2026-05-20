@@ -33,6 +33,85 @@ body::before {
     transform: translate(-50%, -50%);
 }
 
+.eye-stack {
+    position: relative;
+    width: min(34vw, 240px);
+}
+
+.eye-stack .eye {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.eye-base {
+    position: relative;
+    z-index: 1;
+}
+
+.eye-pupil {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.pupil-image {
+    width: 28%;
+    height: auto;
+    display: block;
+}
+
+.breathing {
+    --base-x: 0px;
+    --base-y: 0px;
+    --look-x: 0px;
+    --look-y: 0px;
+    --breath-x: 0px;
+    --breath-y: 0px;
+    --breath-scale: 1;
+    --breath-base-rot: 0deg;
+    --breath-distance: 6px;
+    --breath-tilt: 0.55deg;
+    --breath-duration: 4300;
+    --breath-delay: 0ms;
+    --breath-scale-pulse: 0.016;
+    --breath-jitter: 0.08;
+    --breath-anim-y: var(--breath-y);
+    --breath-anim-rot: var(--breath-base-rot);
+       --breath-anim-scale: var(--breath-scale);
+    transform-origin: 50% 52%;
+    transform: translate(calc(var(--base-x) + var(--breath-x) + var(--look-x)), calc(var(--base-y) + var(--breath-anim-y) + var(--look-y))) scale(var(--breath-anim-scale)) rotate(var(--breath-anim-rot));
+    will-change: transform;
+}
+
+.floating {
+    position: absolute;
+    animation: float 3s ease-in-out infinite;
+}
+
+body.eye-shutdown {
+    pointer-events: none;
+}
+
+body.eye-shutdown .eye-stack {
+    animation: eyeCollapse 900ms cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.eye-pupil.eye-pupil-shutdown .pupil-image {
+    transform-origin: center;
+    will-change: transform;
+}
+
+body.eye-fade-out {
+    animation: sceneFadeOut 900ms ease-in forwards;
+}
+
 @keyframes glowBoot {
     0% {
         opacity: 0;
@@ -62,5 +141,47 @@ body::before {
     50% {
         opacity: 0.76;
         transform: scale(1.03);
+    }
+}
+
+@keyframes eyeCollapse {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.68);
+    }
+}
+
+@keyframes sceneFadeOut {
+    0% {
+        opacity: 1;
+        filter: brightness(1) blur(0px);
+    }
+
+    100% {
+        opacity: 0;
+        filter: brightness(0.2) blur(9px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .breathing {
+        transform: translate(calc(var(--base-x) + var(--breath-x) + var(--look-x)), calc(var(--base-y) + var(--breath-y) + var(--look-y))) scale(var(--breath-scale)) rotate(var(--breath-base-rot));
+    }
+
+    .eye-pupil.eye-pupil-shutdown .pupil-image {
+        animation: none;
+        transform: scale(0.32);
+    }
+
+    body.eye-shutdown .eye-stack {
+        animation: none;
+        transform: scale(0.68);
+    }
+
+    body.eye-fade-out {
+        animation-duration: 280ms;
     }
 }
