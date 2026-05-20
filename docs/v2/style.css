@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20vmax;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at center,
+            rgba(180, 180, 180, 0.42) 0%,
+            rgba(110, 110, 110, 0.26) 22%,
+            rgba(55, 55, 55, 0.14) 42%,
+            rgba(10, 10, 10, 0.04) 62%,
+            rgba(0, 0, 0, 0) 74%),
+        radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(0, 0, 0, 0) 55%);
+    opacity: 0;
+    transform: scale(0.9);
+    animation: glowBoot 1700ms ease-out forwards, glowPulse 5500ms ease-in-out 1700ms infinite;
+}
+
+.eyecenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes glowBoot {
+    0% {
+        opacity: 0;
+        transform: scale(0.72);
+        filter: brightness(0);
+    }
+
+    65% {
+        opacity: 0.45;
+        filter: brightness(0.95);
+    }
+
+    100% {
+        opacity: 0.72;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        opacity: 0.66;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.76;
+        transform: scale(1.03);
+    }
+}
