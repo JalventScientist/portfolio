@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENTRANCE</title>
     <link rel="stylesheet" href="../docs/v2/style.css" type="text/css">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
     <div class="eyecenter">
         <div class="eye-stack" id="eye-stack">
-            <img id="eye-base" src="../docs/v2/Media/Eyes/Eye.png" class="eye eye-base breathing" style="--breath-seed: 1; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 1deg; --breath-duration: 1000; --breath-scale-pulse: 0.012; --breath-jitter: 0.5;">
-            <div id="eye-pupil" class="eye-pupil breathing" style="--breath-seed: 3; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 0deg; --breath-duration: 1000; --breath-scale-pulse: 0.012; --breath-jitter: 0.55;">
+            <img id="eye-base" src="../docs/v2/Media/Eyes/Eye.png" class="eye eye-base breathing"
+                style="--breath-seed: 1; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 4deg; --breath-duration: 1000; --breath-scale-pulse: 0; --breath-jitter: 0.5;">
+            <div id="eye-pupil" class="eye-pupil breathing"
+                style="--breath-seed: 10; --breath-scale: 0.95; --breath-distance: 5px; --breath-tilt: 0deg; --breath-duration: 1200; --breath-scale-pulse: 0; --breath-jitter: 1;">
                 <img src="../docs/v2/Media/Eyes/Pupil.png" class="pupil-image" alt="">
             </div>
         </div>
     </div>
     <script src="scripts/breathing.js"></script>
     <script src="scripts/lookat.js"></script>
+    <script src="scripts/disappear.js"></script>
+    <div class="flex justify-center p-15" id="welcometext">
+        <div class="flex flex-col items-center p-8 bg-black z-1 border border-white border-1">
+            <div class="text-center text-white barcode text-7xl">ENTERING PORTFOLIO OF</div>
+            <div class="text-center code text-xl text-amber-500 mt-5">THOMAS BUSSCHER</div>
+        </div>
+    </div>
 </body>
 
 </html>

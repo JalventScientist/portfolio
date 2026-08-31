@@ -1,3 +1,31 @@
+@font-face {
+    font-family: 'Barcode Font';
+    src: url('../v2/Fonts/BarcodeFont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ID Automation';
+    src: url('../v2/Fonts/IDAutomationHC39M Free Version.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Code';
+    src: url('../v2/Fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+.barcode {
+    font-family: 'Barcode Font', monospace;
+}
+
+.idautomation {
+    font-family: 'ID Automation', monospace;
+}
+
+.code {
+    font-family: 'Code', monospace;
+}
+
+/*the rest*/
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -80,11 +108,12 @@ body::before {
     --breath-delay: 0ms;
     --breath-scale-pulse: 0.016;
     --breath-jitter: 0.08;
+    --breath-anim-x: var(--breath-x);
     --breath-anim-y: var(--breath-y);
     --breath-anim-rot: var(--breath-base-rot);
        --breath-anim-scale: var(--breath-scale);
     transform-origin: 50% 52%;
-    transform: translate(calc(var(--base-x) + var(--breath-x) + var(--look-x)), calc(var(--base-y) + var(--breath-anim-y) + var(--look-y))) scale(var(--breath-anim-scale)) rotate(var(--breath-anim-rot));
+    transform: translate(calc(var(--base-x) + var(--breath-anim-x) + var(--look-x)), calc(var(--base-y) + var(--breath-anim-y) + var(--look-y))) scale(var(--breath-anim-scale)) rotate(var(--breath-anim-rot));
     will-change: transform;
 }
 
@@ -111,6 +140,8 @@ body.eye-shutdown .eye-stack {
 body.eye-fade-out {
     animation: sceneFadeOut 900ms ease-in forwards;
 }
+
+/*Keyframes & other @s*/
 
 @keyframes glowBoot {
     0% {

@@ -225,7 +225,11 @@
 
 	window.addEventListener("mousemove", onMouseMove);
 	window.addEventListener("touchmove", onTouchMove, { passive: true });
-	window.addEventListener("mouseleave", onMouseLeave);
+	window.addEventListener("mouseout", (event) =>{
+		if(event.relatedTarget === null){
+			onMouseLeave(event);
+		}
+	})
 	window.addEventListener("pointerdown", triggerShutdown, { capture: true, once: true });
 
 	animate();

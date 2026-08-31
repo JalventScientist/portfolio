@@ -1,7 +1,8 @@
-let rotationModifier = 1.1; //Modifies rotation speed that is used to make the rotation async
-let rotationOffset = 4937; //Creates an offset that is used to make the rotation async
+
 
 (function () {
+    let rotationModifier = 1.1; //Modifies rotation speed that is used to make the rotation async
+let rotationOffset = 4937; //Creates an offset that is used to make the rotation async
     const SHUTDOWN_EVENT = 'eye:shutdown';
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReducedMotion.matches) {
@@ -19,7 +20,9 @@ let rotationOffset = 4937; //Creates an offset that is used to make the rotation
             el,
             duration: Math.max(2200, read('--breath-duration', 4300)),
             distance: read('--breath-distance', 6),
+            distanceX: read('--breath-distance-x', 4),
             tilt: read('--breath-tilt', 0.55),
+            baseX: read('--breath-x', 0),
             baseY: read('--breath-y', 0),
             baseRot: read('--breath-base-rot', 0),
             baseScale: read('--breath-scale', 1),
@@ -50,6 +53,7 @@ let rotationOffset = 4937; //Creates an offset that is used to make the rotation
         }
 
         for (const item of elements) {
+            item.el.style.setProperty('--breath-anim-x', item.baseX.toFixed(3) + 'px');
             item.el.style.setProperty('--breath-anim-y', item.baseY.toFixed(3) + 'px');
             item.el.style.setProperty('--breath-anim-rot', item.baseRot.toFixed(3) + 'deg');
             item.el.style.setProperty('--breath-anim-scale', item.baseScale.toFixed(4));
@@ -82,6 +86,8 @@ let rotationOffset = 4937; //Creates an offset that is used to make the rotation
             const n5 = Math.sin(t * twoPi * 0.07 - item.seed * 2.11);
             // Blend for vertical (breath)
             const breath = (0.55 * n1) + (0.22 * n2) + (0.13 * n3) + (0.07 * n4) + (0.03 * n5) + (0.04 * drift);
+            // Blend for horizontal (drift): offset phases so X and Y move independently
+            const driftX = (0.5 * n2) + (0.25 * n3) + (0.15 * n4) + (0.07 * n5) + (0.03 * n1) + (0.04 * drift);
             // Rotation: use a different blend and speed, plus offset
             const rotT = (time * 0.001 * rotationModifier) + (rotationOffset * 0.0001) + item.seed * 1.11;
             const r1 = Math.sin(rotT);
@@ -93,8 +99,10 @@ let rotationOffset = 4937; //Creates an offset that is used to make the rotation
             // Jitter: subtle, non-repetitive
             const jitterWave = n3 * item.jitter;
             // Final values
+            const x = item.baseX + (item.distanceX * driftX);
             const y = item.baseY + (item.distance * breath) + (item.distance * 0.18 * jitterWave);
             const rot = item.baseRot + (item.tilt * rotWave);
+            item.el.style.setProperty('--breath-anim-x', x.toFixed(3) + 'px');
             item.el.style.setProperty('--breath-anim-y', y.toFixed(3) + 'px');
             item.el.style.setProperty('--breath-anim-rot', rot.toFixed(3) + 'deg');
             item.el.style.setProperty('--breath-anim-scale', scale.toFixed(4));
